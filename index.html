@@ -32,6 +32,7 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
+var elem = document.getElementById('claimButton');
     var watchId = navigator.geolocation.watchPosition(function (position) {
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
   document.getElementById('currentLon').innerHTML = position.coords.longitude;
@@ -39,6 +40,11 @@ function deg2rad(deg) {
 	    var current_lon = position.coords.longitude;
 	    var distance = getDistanceFromLatLonInKm(target_latitude, target_longitude, current_lat, current_lon); 
 	    document.getElementById('distance').innerHTML = distance;
+	    if(distance > 0.014){
+		elem.style.visibility = 'hidden';    
+	    }else{
+		elem.style.visibility = 'visible';    
+	    }
 	
     });
 		</script>
@@ -76,6 +82,11 @@ function deg2rad(deg) {
 		  margin-right:15px;
 	  }
 	  #currentLon{
+		  color: white;
+		  margin-right:15px;
+	  }
+	  
+	  #distance{
 		  color: white;
 	  }
 	  
@@ -119,7 +130,7 @@ animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
 	</a-scene>
 	
 <div class="buttons">
-  <button class="say-hi-button">Claim</button>
+  <button class="say-hi-button" id="claimButton">Claim</button>
 </div>
 	
 	
