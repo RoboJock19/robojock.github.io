@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 <html>
- <head>
- </head>
 <body>
- 
- <p id="currentLat"></p>
+
+<p id="currentLat"></p>
  <p id="currentLon"></p>
- <p id="distance"></p>
+
 <script>
 
- 
 var watchId = navigator.geolocation.watchPosition(function (position) {
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
   document.getElementById('currentLon').innerHTML = position.coords.longitude;
-
- 
-    }
- 
 });
- 
+  
+</script>
+
 </body>
 </html>
-
