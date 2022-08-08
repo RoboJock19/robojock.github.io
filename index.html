@@ -10,11 +10,12 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-	
+	<script>
     var watchId = navigator.geolocation.watchPosition(function (position) {
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
   document.getElementById('currentLon').innerHTML = position.coords.longitude;
-});
+	</script>
+    });
       <script>
     window.onload = function () {
       document
