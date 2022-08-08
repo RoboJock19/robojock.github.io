@@ -9,7 +9,6 @@
  <p id="currentLon"></p>
 
 <script>
-var x = document.getElementById("demo");
 
 var watchId = navigator.geolocation.watchPosition(function (position) {
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
