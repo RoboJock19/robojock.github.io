@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=true_or_false">
-</script>
  </head>
 <body>
  
  <p id="currentLat"></p>
  <p id="currentLon"></p>
-
+ <p id="distance"></p>
 <script>
  
  var target_longitude: 28.30325462094943; 
@@ -40,6 +37,7 @@ var watchId = navigator.geolocation.watchPosition(function (position) {
   var user_lat = position.coords.latitude;
   var user_lon = position.coords.longitude;
   distance = getDistanceFromLatLonInKm(target_latitude, target_longitude, user_lat, user_lon);
+ document.getElementById('distance').innerHTML = position.coords.longitude;
  consoloe.log(distance);
  
     }
