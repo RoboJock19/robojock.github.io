@@ -42,9 +42,11 @@ var elem = document.getElementById('claimButton');
 	    document.getElementById('distance').innerHTML = distance;
 	    console.log(typeof distance);
 	    if(distance > 0.013){
-		elem.style.visibility = 'hidden';    
+		elem.style.display = 'none'; // hide
+ 
 	    }else{
-		elem.style.visibility = 'visible';    
+		elem.style.display = 'block'; // show - use this for block elements (div, p)
+ 
 	    }
 	
     });
@@ -130,8 +132,8 @@ animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
 </a-entity>
 	</a-scene>
 	
-<div class="buttons">
-  <button class="say-hi-button" id="claimButton">Claim</button>
+<div class="buttons" id="claimButton">
+  <button class="say-hi-button" >Claim</button>
 </div>
 	
 	
