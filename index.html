@@ -77,7 +77,9 @@
 	
 </head>
 <body style='margin: 0; overflow: hidden;'>
-	
+	<div class = "coords">
+		<p ><section id="currentLat"></section> <section id="currentLon"></section></p>
+	</div>
     <a-scene
         vr-mode-ui="enabled: false"
 		embedded
@@ -88,9 +90,7 @@
 animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
 </a-entity>
 	</a-scene>
-	<div class = "coords">
-		<p ><section id="currentLat"></section> <section id="currentLon"></section></p>
-	</div>
+	
 <div class="buttons">
   <button class="say-hi-button">Claim</button>
 </div>
