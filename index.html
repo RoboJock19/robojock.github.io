@@ -32,8 +32,9 @@ function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
 function deg2rad(deg) {
   return deg * (Math.PI/180)
 }
-var elem = document.getElementById('claimButton');
     var watchId = navigator.geolocation.watchPosition(function (position) {
+	    var elem = document.getElementById('claimButton');
+
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
   document.getElementById('currentLon').innerHTML = position.coords.longitude;
 	    var current_lat = position.coords.latitude;
