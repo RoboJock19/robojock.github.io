@@ -11,7 +11,7 @@
         AFRAME.registerComponent('button', {
             init: function() {
 
-                const gltf = document.querySelector('#animatedApple');
+                const gltf = document.querySelector('#money');
                 var x = gltf.getAttribute('scale').x;
                 var y = gltf.getAttribute('scale').y;
                 var z = gltf.getAttribute('scale').z;
@@ -31,4 +31,9 @@
 </head>   
 <body>
     <a-scene embedded arjs = 'sourceType: webcam; debugUIEnabled:false;'>
-    <a-assets>
+    <a-camera gps-camera rotation-reader></a-camera>
+	    <a-entity id="money" gltf-model="./assets/cash_bundle/scene.gltf" rotation="180 90 0" scale="0.2 0.2 0.2" gps-entity-place="longitude: 28.30325462094943; latitude: -25.839212874353716;" animation-mixer/>
+	</a-scene>
+    
+    </body>
+</html>
