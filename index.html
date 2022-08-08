@@ -42,11 +42,11 @@ function deg2rad(deg) {
 	    var distance = getDistanceFromLatLonInKm(target_latitude, target_longitude, current_lat, current_lon); 
 	    document.getElementById('distance').innerHTML = distance;
 	    console.log(typeof distance);
-	    if(distance > 0.013){
+	    if(distance > 0.017){
 		elem.style.display = 'none'; // hide
  
 	    }else{
-		elem.style.display = 'block'; // show - use this for block elements (div, p)
+		elem.style.display = 'inline'; // show - use this for block elements (div, p)
  
 	    }
 	
