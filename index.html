@@ -16,10 +16,13 @@
       document
         .querySelector(".say-hi-button")
         .addEventListener("click", function () {
+	      alert("Navigating to prize!");
+	      window.location.href = "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/7091185752529708299613736057021339035966799169016588025314667338667105714177";
+
           // here you can change also a-scene or a-entity properties, like
           // changing your 3D model source, size, position and so on
           // or you can just open links, trigger actions...
-          alert("Hi there!");
+          
         });
     };
   </script>
@@ -60,7 +63,7 @@ animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
 </a-entity>
 	</a-scene>
 <div class="buttons">
-  <button class="say-hi-button"></button>
+  <button class="say-hi-button">Claim Prize!</button>
 </div>
     </body>
     
