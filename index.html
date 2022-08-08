@@ -2,27 +2,20 @@
 <html>
 <body>
 
-<p>Click the button to get your coordinates.</p>
 
-<button onclick="getLocation()">Try It</button>
 
-<p id="demo"></p>
+
+<p id="currentLat"></p>
+ <p id="currentLon"></p>
 
 <script>
 var x = document.getElementById("demo");
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
+var watchId = navigator.geolocation.watchPosition(function (position) {
+  document.getElementById('currentLat').innerHTML = position.coords.latitude;
+  document.getElementById('currentLon').innerHTML = position.coords.longitude;
+});
+  
 </script>
 
 </body>
