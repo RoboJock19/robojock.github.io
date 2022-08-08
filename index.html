@@ -12,33 +12,11 @@
  var target_longitude: 28.30325462094943; 
  var target_latitude: -25.839212874353716;
  
-function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-  var a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2)
-    ; 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
-  return d;
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI/180)
-} 
- 
  
 var watchId = navigator.geolocation.watchPosition(function (position) {
   document.getElementById('currentLat').innerHTML = position.coords.latitude;
   document.getElementById('currentLon').innerHTML = position.coords.longitude;
-  var user_lat = position.coords.latitude;
-  var user_lon = position.coords.longitude;
-  distance = getDistanceFromLatLonInKm(target_latitude, target_longitude, user_lat, user_lon);
- document.getElementById('distance').innerHTML = position.coords.longitude;
- consoloe.log(distance);
+
  
     }
  
