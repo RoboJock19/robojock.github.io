@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GeoAR.js demo</title>
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    
+      <script>
+    window.onload = function () {
+      document
+        .querySelector(".say-hi-button")
+        .addEventListener("click", function () {
+	      alert("Navigating to prize!");
+	      window.location.href = "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/7091185752529708299613736057021339035966799169016588025314667338667105714177";
 
-<p id="currentLat"></p>
- <p id="currentLon"></p>
+          // here you can change also a-scene or a-entity properties, like
+          // changing your 3D model source, size, position and so on
+          // or you can just open links, trigger actions...
+          
+        });
+    };
+  </script>
+  <style>
+    .buttons {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
 
-<script>
-
-var watchId = navigator.geolocation.watchPosition(function (position) {
-  document.getElementById('currentLat').innerHTML = position.coords.latitude;
-  document.getElementById('currentLon').innerHTML = position.coords.longitude;
-});
-  
-</script>
-
-</body>
+    .say-hi-button {
+      padding: 0.25em;
+      border-radius: 4px;
+      border: none;
+      background: white;
+      color: black;
+      width: 4em;
+      height: 2em;
+    }
+  </style>
+	
+</head>
+<body style='margin: 0; overflow: hidden;'>
+    <a-scene
+        vr-mode-ui="enabled: false"
+		embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 50; debugUIEnabled: false;'>
+        
+      <a-entity>
+<a-entity gltf-model="./assets/cash_bundle/scene.gltf" scale="0.02 0.02 0.02" position="0 0 0" gps-entity-place="longitude: 28.30325462094943; latitude: -25.839212874353716;" 
+animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
+</a-entity>
+	</a-scene>
+<div class="buttons">
+  <button class="say-hi-button">Claim</button>
+</div>
+    </body>
+    
+    
+	
 </html>
