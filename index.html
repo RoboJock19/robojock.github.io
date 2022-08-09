@@ -10,137 +10,17 @@
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
-	<script>
-		
-var target_longitude =  26.685435581679545; 
- var target_latitude = -26.81006310147045;
-	      
-function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
-  var R = 6371; // Radius of the earth in km
-  var dLat = deg2rad(lat2-lat1);  // deg2rad below
-  var dLon = deg2rad(lon2-lon1); 
-  var a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2)
-    ; 
-  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-  var d = R * c; // Distance in km
-  return d;
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI/180)
-}
-    var watchId = navigator.geolocation.watchPosition(function (position) {
-	    var elem = document.getElementById('claimButton');
-
-  document.getElementById('currentLat').innerHTML = position.coords.latitude;
-  document.getElementById('currentLon').innerHTML = position.coords.longitude;
-	    var current_lat = position.coords.latitude;
-	    var current_lon = position.coords.longitude;
-	    var distance = getDistanceFromLatLonInKm(target_latitude, target_longitude, current_lat, current_lon); 
-	    document.getElementById('distance').innerHTML = distance;
-	    console.log(typeof distance);
-	    if(distance > 0.017){
-		elem.style.display = 'none'; // hide
- 
-	    }else{
-		elem.style.display = 'inline'; // show - use this for block elements (div, p)
- 
-	    }
-	
-    });
-		</script>
-      <script>
-
-	      
-    window.onload = function () {
-      document
-        .querySelector(".say-hi-button")
-        .addEventListener("click", function () {
-	      alert("Navigating to prize!");
-	      window.location.href = "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/7091185752529708299613736057021339035966799169016588025314667338667105714177";
-
-          // here you can change also a-scene or a-entity properties, like
-          // changing your 3D model source, size, position and so on
-          // or you can just open links, trigger actions...
-          
-        });
-    };
-  </script>
-  <style>
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-	  #currentLat{
-		  color:white;
-		  margin-right:15px;
-	  }
-	  #currentLon{
-		  color: white;
-		  margin-right:15px;
-	  }
-	  
-	  #distance{
-		  color: white;
-	  }
-	  
-	     .coords {
-      position: static;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .say-hi-button {
-      padding: 0.25em;
-      border-radius: 4px;
-      border: none;
-      background: white;
-      color: black;
-      width: 4em;
-      height: 2em;
-    }
-	  
-  </style>
 	
 </head>
 <body style='margin: 0; overflow: hidden;'>
-	<div class = "coords">
-		<p ><section id="currentLat"></section> <section id="currentLon"></section></p>
-	<p><section id="distance"></section>
-	</div>
     <a-scene
         vr-mode-ui="enabled: false"
 		embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 50; debugUIEnabled: false;'>
         
-      <a-entity>
-<a-entity gltf-model="./assets/cash_bundle/scene.gltf" scale="0.02 0.02 0.02" position="0 0 0" gps-entity-place="longitude: 26.685435581679545; latitude: -26.81006310147045;" 
-animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" ></a-entity>
-</a-entity>
+        <a-camera gps-camera rotation-reader></a-camera>
+	    <a-entity gltf-model="./assets/cash_bundle/scene.gltf" rotation="180 90 0" scale="0.2 0.2 0.2" gps-entity-place="longitude: 26.685435581679545; latitude: -26.81006310147045;" animation-mixer/>
 	</a-scene>
-	
-<div class="buttons" id="claimButton">
-  <button class="say-hi-button" >Claim</button>
-</div>
-	
-	
-	
-    </body>
-    
-    
+</body>
 	
 </html>
