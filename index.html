@@ -13,10 +13,10 @@
 	
 </head>
 <body style='margin: 0; overflow: hidden;'>
-    <a-scene
-        vr-mode-ui="enabled: false"
-		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 50; debugUIEnabled: false;'>
+      <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+    >
         
         <a-camera gps-camera rotation-reader arjs-look-controls='smoothingFactor: 0.1' gps-camera='gpsMinDistance: 5'></a-camera>
 	    <a-entity gltf-model="./assets/cash_bundle/scene.gltf" scale="0.2 0.2 0.2" gps-entity-place="longitude: 28.303338464440486; latitude: -25.838976089846465;" />
