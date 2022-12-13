@@ -17,8 +17,20 @@
         if(!testEntityAdded) {
             alert(`Got first GPS position: lon ${e.detail.position.longitude} lat ${e.detail.position.latitude}`);
             // Add a box to the north of the initial GPS position
-            const entity = document.createElement("a-link");
-            entity.setAttribute("scale", {
+	const label = document.createElement("a-text");
+            const entity = document.createElement("a-box");
+            label.setAttribute('title','www.google.com');
+		setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude + 0.001,
+                longitude: e.detail.position.longitude
+            });
+		
+		label.setAttribute("scale", {
+                x: 15, 
+                y: 15,
+                z: 15
+            });
+		entity.setAttribute("scale", {
                 x: 5, 
                 y: 5,
                 z: 5
@@ -28,13 +40,15 @@
                 y: 0,
                 z: 0
             });
+		
             entity.setAttribute('gltf-model', "./assets/cash_bundle/scene.gltf" );
-		entity.setAttribute('title','www.google.com');
             entity.setAttribute('gps-new-entity-place', {
                 latitude: e.detail.position.latitude + 0.001,
                 longitude: e.detail.position.longitude
             });
             document.querySelector("a-scene").appendChild(entity);
+		document.querySelector("a-scene").appendChild(label);
+
         }
         testEntityAdded = true;
     });
