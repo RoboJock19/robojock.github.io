@@ -19,6 +19,20 @@
             // Add a box to the north of the initial GPS position
 	
            const entity = document.createElement("a-box");
+		const label = document.createElement("a-text");
+		label.setAttribute("value", "www.google.com");
+		label.setAttribute("look-at", "[gps-camera]");
+		
+		label.setAttribute("scale", {
+                x: 50, 
+                y: 50,
+                z: 50
+            });
+		
+		label.setAttribute('gps-new-entity-place', {
+                latitude: e.detail.position.latitude + 0.001,
+                longitude: e.detail.position.longitude
+            });
          
 		entity.setAttribute("scale", {
                 x: 5, 
@@ -37,6 +51,8 @@
                 longitude: e.detail.position.longitude
             });
             document.querySelector("a-scene").appendChild(entity);
+            document.querySelector("a-scene").appendChild(label);
+
 
         }
         testEntityAdded = true;
