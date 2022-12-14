@@ -19,8 +19,9 @@
             // Add a box to the north of the initial GPS position
 	
            const entity = document.createElement("a-box");
-		const label = document.createElement("a-text");
-		label.setAttribute("value", "www.google.com");
+		const label = document.createElement("a-link");
+		label.setAttribute("value", "claim prize");
+		label.setAttribute("href", "https://opensea.io/");
 		label.setAttribute("look-at", "[gps-camera]");
 		
 		label.setAttribute("scale", {
@@ -59,7 +60,7 @@
     });
 };
 	</script>
-<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
+<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true' cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
 </a-scene>
 </body>
