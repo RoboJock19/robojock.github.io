@@ -35,9 +35,9 @@
             });
          
 		entity.setAttribute("scale", {
-                x: 5, 
-                y: 5,
-                z: 5
+                x: 1, 
+                y: 1,
+                z: 1
             });
 		entity.setAttribute("rotation", {
                 x: 90, 
@@ -50,7 +50,7 @@
                 latitude: e.detail.position.latitude + 0.001,
                 longitude: e.detail.position.longitude
             });
-            //document.querySelector("a-scene").appendChild(entity);
+            document.querySelector("a-scene").appendChild(entity);
             document.querySelector("a-scene").appendChild(label);
 
 
